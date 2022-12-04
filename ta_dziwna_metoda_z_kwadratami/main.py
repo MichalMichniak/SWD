@@ -56,4 +56,4 @@ if __name__ == '__main__':
     min_max = [np.min,np.min]
     A = [[2,3],[-1,1],[1,3],[1,1],[2,2],[0,0]]
     B = [[3,4],[5,1],[1,2],[3,3]]
-    print(RSM([],B,min_max))
+    print(RSM(A,B,min_max))
