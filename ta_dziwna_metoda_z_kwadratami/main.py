@@ -21,19 +21,17 @@ def RSM(A : List[List[float]], C :  List[List[float]],metr = None):
         B - zbiór punktów dopószczalnych
 
     return
-        punkty skoringowe zbioru B
+        lst_skoring - punkty skoringowe zbioru B
+        lst - posortowane punkty ze zbioru B względem punktów skoringowych
     """
     if metr == None:
         metr = metric
-    try:
-        A0,rest = zdominowane(A)
-        A1,rest = zdominowane(rest)
-    except:
-        pass
-    ## testy
-    A0 = [[1,1],[2,2],[0,0]]
-    A1 = [[2,3],[-1,1],[1,3]]
-    ## koniec testów
+    A0,rest = zdominowane(A)
+    A1,rest = zdominowane(rest)
+    # ## testy
+    # A0 = [[1,1],[2,2]]
+    # A1 = [[2,3],[-1,1],[1,3]]
+    # ## koniec testów
     if len(A1) == 0:
         return "error"
     wages = np.zeros([len(A0),len(A1)])
@@ -47,8 +45,12 @@ def RSM(A : List[List[float]], C :  List[List[float]],metr = None):
         lst_skoring.append(0)
         for j in range(len(wages)):
             for k in range(len(wages[0])):
-                lst_skoring[i] += wages[j,k] * metr(C[i],A0[k])/(metr(C[i],A0[k])+metr(C[i],A1[j]))
-    return lst_skoring
+                lst_skoring[i] += wages[j,k] * metr(C[i],A0[j])/(metr(C[i],A0[j])+metr(C[i],A1[k]))
+    lst = list(zip(C,lst_skoring))
+    lst.sort(key=lambda x: x[1])
+    lst = list(zip(*lst))[0]
+    
+    return lst_skoring,lst
 
 if __name__ == '__main__':
     A = [[2,3],[-1,1],[1,3],[1,1],[2,2],[0,0]]
