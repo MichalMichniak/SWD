@@ -18,7 +18,7 @@ def RSM(A : List[List[float]], C :  List[List[float]],min_max_criterial_funct : 
 
     args:
         A - zbiór punktów odniesienia
-        B - zbiór punktów dopószczalnych
+        B - zbiór punktów dopuszczalnych
 
     return
         lst_skoring - punkty skoringowe zbioru B
@@ -54,6 +54,6 @@ def RSM(A : List[List[float]], C :  List[List[float]],min_max_criterial_funct : 
 
 if __name__ == '__main__':
     min_max = [np.min,np.min]
-    A = [[2,3],[-1,1],[1,3],[1,1],[2,2],[0,0]]
-    B = [[3,4],[5,1],[1,2],[3,3]]
+    A = [[-1,3],[0,1],[2,0],[-2,0],[-1,-2],[0,-3]]
+    B = [[4,4],[5,4],[-2,0],[0,1],[2,1],[1,-3],[4,1],[3,2],[3,3],[3,-1],[-1,1],[0,-1],[4,-2],[-1,3]]
     print(RSM(A,B,min_max))
