@@ -1,4 +1,4 @@
-from typing import List
+from typing import List,Callable
 from zdominowane import zdominowane
 import numpy as np
 
@@ -12,7 +12,7 @@ def metric(a : List[float],b : List[float]):
     d = np.dot(np.array(a)-np.array(b),np.array(a)-np.array(b))
     return np.sqrt(d)
 
-def RSM(A : List[List[float]], C :  List[List[float]],metr = None):
+def RSM(A : List[List[float]], C :  List[List[float]],min_max_criterial_funct : List[Callable[[np.ndarray],float]],metr = None):
     """
     RSM metoda zbiorów odniesienia
 
@@ -26,8 +26,8 @@ def RSM(A : List[List[float]], C :  List[List[float]],metr = None):
     """
     if metr == None:
         metr = metric
-    A0,rest = zdominowane(A)
-    A1,rest = zdominowane(rest)
+    A0,rest = zdominowane(A,min_max_criterial_funct)
+    A1,rest = zdominowane(rest,min_max_criterial_funct)
     # ## testy
     # A0 = [[1,1],[2,2]]
     # A1 = [[2,3],[-1,1],[1,3]]
@@ -53,6 +53,7 @@ def RSM(A : List[List[float]], C :  List[List[float]],metr = None):
     return lst_skoring,lst
 
 if __name__ == '__main__':
+    min_max = [np.min,np.min]
     A = [[2,3],[-1,1],[1,3],[1,1],[2,2],[0,0]]
     B = [[3,4],[5,1],[1,2],[3,3]]
     print(RSM([],B))
