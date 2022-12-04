@@ -28,8 +28,3 @@ def zdominowane(decision_matrix : np.ndarray, min_max_criterial_funct : List[Cal
             if lst_copy[i] not in lstnzd:
                 lstzd.append(lst_copy[i])
     return  lstnzd,lstzd
-
-if __name__=='__main__':
-    min_max_crit = [np.min,np.min]
-    A = [[2,3],[-1,1],[1,3],[1,1],[2,2],[0,0]]
-    print(zdominowane(A,min_max_crit))
