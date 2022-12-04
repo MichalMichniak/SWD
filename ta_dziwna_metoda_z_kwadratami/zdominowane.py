@@ -1,0 +1,3 @@
+
+def zdominowane(A):
+    pass
