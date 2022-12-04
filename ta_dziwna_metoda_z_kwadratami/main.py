@@ -27,6 +27,8 @@ def RSM(A : List[List[float]], C :  List[List[float]],min_max_criterial_funct : 
     if metr == None:
         metr = metric
     A0,rest = zdominowane(A,min_max_criterial_funct)
+    print(A0)
+    print(rest)
     A1,rest = zdominowane(rest,min_max_criterial_funct)
     # ## testy
     # A0 = [[1,1],[2,2]]
