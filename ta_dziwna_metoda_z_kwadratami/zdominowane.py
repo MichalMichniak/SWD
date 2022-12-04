@@ -2,7 +2,7 @@ import numpy as np
 from typing import Callable,List
 def zdominowane(decision_matrix : np.ndarray, min_max_criterial_funct : List[Callable[[np.ndarray],float]]):
     decision_matrix_copy = decision_matrix.copy()
-    decision_matrix = decision_matrix[:][:]
+    decision_matrix = decision_matrix[:,:]
     lst = []
     lst2 = []
     for i in range(len(decision_matrix)):
