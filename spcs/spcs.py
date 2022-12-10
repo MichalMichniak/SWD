@@ -3,6 +3,7 @@ from zdominowane import zdominowane
 import numpy as np
 from woronoj_pkt import woronoj
 from count_path import cum_count_path
+from czy_w_obszarze import czy_w_obszarze
 
 
 def norm(A : List[List[float]], C :  List[List[float]]):
@@ -13,8 +14,18 @@ def norm(A : List[List[float]], C :  List[List[float]]):
     return normalizedA,normalizedC
 
 def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : List[np.ndarray]):
-    woron_point = woronoj(np.array([1,2,3]),np.array([1,2,3]))
-    print(cum_count_path(woron_point),woron_point)
+    scoring = []
+    for pkt in range(len(punkty)):
+        scoring.append(0)
+        for ide in range(len(idealny)):
+            for anty in range(len(antyidealny)):
+                w = czy_w_obszarze(pkt,ide,anty)
+                if w == -1:
+                    continue
+                woron_point = woronoj(anty,ide)
+                cum_path = cum_count_path(woron_point),woron_point
+                for i in range(1,len(woron_point)):
+                    d = 0##############TODO
     pass
 
 
