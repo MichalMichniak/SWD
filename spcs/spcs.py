@@ -9,8 +9,5 @@ def norm(A : List[List[float]], C :  List[List[float]]):
     normalizedC=(C1-np.min(C1))/(np.max(C1)-np.min(C1))
     return normalizedA,normalizedC
 
-def SPCS(A : List[List[float]], C :  List[List[float]],min_max_criterial_funct : List[Callable[[np.ndarray],float]],metr = None):
-    k=len(A[0])
-    d=[]
-    for i in range(1,k+1):
-        d[i]=()/2
+def SPCS():
+    pass

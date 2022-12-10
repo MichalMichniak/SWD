@@ -21,7 +21,7 @@ def woronoj(pkt_1 : np.ndarray,pkt_2 : np.ndarray):
 
 if __name__ == '__main__':
     x1 = np.array([0,0,0])
-    x2 = np.array([2,4,8])
+    x2 = np.array([2,-4,8])
     wor = woronoj(x1,x2)
 
 
