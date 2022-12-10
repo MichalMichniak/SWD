@@ -44,7 +44,6 @@ def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : Li
                         minimal = metric
                         d_path = cum_path[i]
                 ###
-                waga+=w
                 scoring[pkt] += w*d_path
         scoring[pkt] = scoring[pkt]/waga
     return scoring
