@@ -4,7 +4,7 @@ import numpy as np
 from woronoj_pkt import woronoj
 from count_path import cum_count_path
 from czy_w_obszarze import czy_w_obszarze
-
+from costam import costam
 
 def norm(A : List[List[float]], C :  List[List[float]]):
     A1=np.array(A)
@@ -19,13 +19,24 @@ def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : Li
         scoring.append(0)
         for ide in range(len(idealny)):
             for anty in range(len(antyidealny)):
+                minimal = np.inf
+                d_path = 0
                 w = czy_w_obszarze(pkt,ide,anty)
                 if w == -1:
                     continue
                 woron_point = woronoj(anty,ide)
                 cum_path = cum_count_path(woron_point),woron_point
                 for i in range(1,len(woron_point)):
-                    d = 0##############TODO
+                    d,metric = costam(woron_point[i-1],woron_point[i],punkty[pkt])
+                    if d == -1:
+                        continue
+                    if minimal>metric:
+                        minimal = metric
+                        d_path = cum_path[i-1]+d
+                ### sprawdzanie punktów woronoja
+                
+                ###
+
     pass
 
 
