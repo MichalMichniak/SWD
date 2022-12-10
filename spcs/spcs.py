@@ -34,9 +34,14 @@ def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : Li
                         minimal = metric
                         d_path = cum_path[i-1]+d
                 ### sprawdzanie punktów woronoja
-
+                for i in range(1,len(woron_point)):
+                    metric = np.linalg.norm(punkty[pkt]-woron_point[i])
+                    if minimal>metric:
+                        minimal = metric
+                        d_path = cum_path[i]
                 ###
-
+                scoring[pkt] += w*d_path
+    return scoring
     pass
 
 
