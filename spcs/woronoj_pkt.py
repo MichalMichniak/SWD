@@ -22,13 +22,6 @@ def woronoj(pkt_1 : np.ndarray,pkt_2 : np.ndarray):
         size_of_shift[idx] = np.inf
         sign_of_shift[idx] = 0
         dimentions[idx] = 0
-        #### 
-        # wor = np.array(woronoj_points)
-        # fig = plt.figure()
-        # ax = plt.axes(projection ='3d')
-        # ax.plot3D(wor[:,0], wor[:,1], wor[:,2], 'green')
-        # plt.show()
-        ####
     return np.array(woronoj_points) + pkt_1_temp
 
 if __name__ == '__main__':
