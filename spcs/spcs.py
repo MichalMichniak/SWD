@@ -5,6 +5,8 @@ from woronoj_pkt import woronoj
 from count_path import cum_count_path
 from czy_w_obszarze import czy_w_obszarze
 from costam import costam
+from waga import zwrot_wagi
+
 
 def norm(A : List[List[float]], C :  List[List[float]]):
     A1=np.array(A)
@@ -15,7 +17,7 @@ def norm(A : List[List[float]], C :  List[List[float]]):
 
 def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : List[np.ndarray]):
     scoring = []
-    waga = 1
+    waga = zwrot_wagi(idealny,antyidealny)
     for pkt in range(len(punkty)):
         scoring.append(0)
         
