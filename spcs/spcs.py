@@ -25,7 +25,7 @@ def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : Li
                 if w == -1:
                     continue
                 woron_point = woronoj(anty,ide)
-                cum_path = cum_count_path(woron_point),woron_point
+                cum_path = cum_count_path(woron_point)
                 for i in range(1,len(woron_point)):
                     d,metric = costam(woron_point[i-1],woron_point[i],punkty[pkt])
                     if d == -1:
@@ -34,7 +34,7 @@ def SPCS(idealny : List[np.ndarray], antyidealny : List[np.ndarray], punkty : Li
                         minimal = metric
                         d_path = cum_path[i-1]+d
                 ### sprawdzanie punktów woronoja
-                
+
                 ###
 
     pass
