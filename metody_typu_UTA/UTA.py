@@ -7,7 +7,7 @@ from nowa_funkcja import nowa_funkcja
 def UTA(A: np.ndarray, wartosci_u: np.ndarray , ilosc_przedzialow : np.ndarray):
     x = min_max_przedzialik(A,ilosc_przedzialow)
     print(x)
-    a_b = zwroc_f_u(wartosci_u,x)
+    a_b = zwroc_f_u(wartosci_u.T,x)
     lst = []
     for i in range(len(A)):
         lst.append(nowa_funkcja(a_b,x,A[i,:])) 
