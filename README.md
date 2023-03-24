@@ -1,2 +1,2 @@
 # SWD
-polioptymalisation algorithms
+poly-optimization algorithms
